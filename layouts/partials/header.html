@@ -1,0 +1,14 @@
+<nav class="nav" role="navigation" aria-label="Hoofdnavigatie">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.jpg" alt="Rigor Mortis Logo">
+    <span class="nav-logo-text">Rigor Mortis</span>
+  </a>
+  <ul class="nav-links" id="nav-links" role="list">
+    {{ range .Site.Menus.main }}
+    <li><a href="{{ .URL }}"{{ if eq $.RelPermalink .URL }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+    {{ end }}
+  </ul>
+  <button class="nav-toggle" aria-label="Menu openen/sluiten" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span><span></span>
+  </button>
+</nav>

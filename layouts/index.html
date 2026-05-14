@@ -1,0 +1,112 @@
+{{ define "main" }}
+
+<!-- ===== HERO ===== -->
+<section class="hero" aria-label="Hero sectie">
+  <div class="hero-bg" role="img" aria-label="Ski piste"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-aurora" aria-hidden="true">
+    <div class="aurora-band"></div>
+    <div class="aurora-band aurora-band--2"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">⛷ Skivereniging · Est. Altijd al Geleden</div>
+    <h1 class="hero-title">
+      SKIVERENIGING<br>
+      <span class="highlight">RIGOR<br>MORTIS</span>
+    </h1>
+    <p class="hero-subtitle">Geen genade op de piste. Wel gezelligheid in de bar.</p>
+    <div class="hero-cta">
+      <a href="/posts/" class="btn-primary">🎿 Onze Avonturen</a>
+      <a href="/about/" class="btn-secondary">Over ons</a>
+    </div>
+  </div>
+  <div class="hero-scroll-indicator" aria-hidden="true">
+    <div class="scroll-mouse">
+      <div class="scroll-wheel"></div>
+    </div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ===== MOUNTAIN DIVIDER ===== -->
+<div class="mountain-divider" aria-hidden="true">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 L0,85 L120,45 L240,80 L360,30 L480,65 L600,15 L720,55 L840,8 L960,48 L1080,18 L1200,52 L1320,22 L1440,58 L1440,120 Z" fill="#080e1a"/>
+  </svg>
+</div>
+
+<!-- ===== STATS ===== -->
+<section class="stats-section" aria-label="Club statistieken">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item animate-on-scroll">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Après-ski sessies</div>
+      </div>
+      <div class="stat-item animate-on-scroll">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Piste plezier</div>
+      </div>
+      <div class="stat-item animate-on-scroll">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Saaie momenten</div>
+      </div>
+      <div class="stat-item animate-on-scroll">
+        <div class="stat-number">🏔</div>
+        <div class="stat-label">Bergliefde</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LATEST POSTS ===== -->
+<section class="section" aria-labelledby="posts-heading">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <div class="section-eyebrow">Van de piste</div>
+      <h2 class="section-title" id="posts-heading">LAATSTE BERICHTEN</h2>
+    </div>
+    <div class="posts-grid">
+      {{ range first 6 (where .Site.RegularPages "Section" "posts") }}
+      <a href="{{ .Permalink }}" class="post-card animate-on-scroll">
+        {{ with .Params.image }}
+        <img class="post-card-image" src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+        {{ else }}
+        <div class="post-card-image-placeholder" aria-hidden="true">⛷</div>
+        {{ end }}
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <time class="post-card-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+            {{ with index .Params.categories 0 }}<span class="post-card-tag">{{ . }}</span>{{ end }}
+          </div>
+          <h3 class="post-card-title">{{ .Title }}</h3>
+          <p class="post-card-excerpt">{{ .Summary | truncate 120 }}</p>
+          <div class="post-card-footer">
+            <span class="post-card-read-more">Lees meer <span aria-hidden="true">→</span></span>
+          </div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+    {{ $posts := where .Site.RegularPages "Section" "posts" }}
+    {{ if gt (len $posts) 6 }}
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="/posts/" class="btn-primary">Alle berichten bekijken</a>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- ===== CALL TO ACTION ===== -->
+<section class="cta-section" aria-label="Meld je aan">
+  <div class="container">
+    <div class="cta-box animate-on-scroll">
+      <div class="cta-badge">🎿 Join the crew</div>
+      <h2 class="cta-title">KLAAR VOOR HET AVONTUUR?</h2>
+      <p class="cta-text">Skivereniging Rigor Mortis staat altijd open voor nieuwe leden die net zo gek zijn op de bergen als wij.</p>
+      <a href="mailto:{{ .Site.Params.email }}" class="btn-primary">Neem contact op</a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

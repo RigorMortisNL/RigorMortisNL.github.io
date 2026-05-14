@@ -1,2 +1,1 @@
-cd /workspaces/RigorMortisNL.github.io/docs
-bundle exec jekyll serve --baseurl=""
+hugo server --bind 0.0.0.0 --baseURL http://localhost:1313
