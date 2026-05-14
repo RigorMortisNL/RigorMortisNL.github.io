@@ -1,0 +1,40 @@
+{{ define "main" }}
+<div class="page-wrapper">
+  <div class="page-top-spacer"></div>
+  <section class="section" aria-labelledby="list-heading">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-eyebrow">Archief</div>
+        <h1 class="section-title" id="list-heading">{{ .Title | upper }}</h1>
+        {{ with .Description }}<p class="section-desc">{{ . }}</p>{{ end }}
+      </div>
+      {{ if .Pages }}
+      <div class="posts-grid">
+        {{ range .Pages }}
+        <a href="{{ .Permalink }}" class="post-card animate-on-scroll">
+          {{ with .Params.image }}
+          <img class="post-card-image" src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+          {{ else }}
+          <div class="post-card-image-placeholder" aria-hidden="true">⛷</div>
+          {{ end }}
+          <div class="post-card-body">
+            <div class="post-card-meta">
+              <time class="post-card-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+              {{ with index .Params.categories 0 }}<span class="post-card-tag">{{ . }}</span>{{ end }}
+            </div>
+            <h2 class="post-card-title">{{ .Title }}</h2>
+            <p class="post-card-excerpt">{{ .Summary | truncate 120 }}</p>
+            <div class="post-card-footer">
+              <span class="post-card-read-more">Lees meer <span aria-hidden="true">→</span></span>
+            </div>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+      {{ else }}
+      <p style="text-align:center; color: var(--text-muted); padding: 3rem 0;">Nog geen berichten. Kom binnenkort terug!</p>
+      {{ end }}
+    </div>
+  </section>
+</div>
+{{ end }}

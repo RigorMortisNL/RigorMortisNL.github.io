@@ -1,0 +1,26 @@
+{{ define "main" }}
+<article class="post-article">
+  <!-- Post Hero -->
+  <div class="post-hero">
+    <div class="post-hero-bg"></div>
+    <div class="post-hero-overlay"></div>
+    <div class="post-hero-content">
+      <div class="post-header-meta">
+        <time class="post-header-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+        {{ range .Params.categories }}<span class="post-header-tag">{{ . }}</span>{{ end }}
+      </div>
+      <h1 class="post-title">{{ .Title }}</h1>
+    </div>
+  </div>
+
+  <!-- Post Content -->
+  <div class="post-content-wrapper">
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+    <div class="post-back-link">
+      <a href="/posts/">← Terug naar berichten</a>
+    </div>
+  </div>
+</article>
+{{ end }}

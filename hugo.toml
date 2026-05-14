@@ -1,0 +1,35 @@
+baseURL = "https://www.rigormortis.nl"
+languageCode = "nl-NL"
+title = "Skivereniging Rigor Mortis"
+pluralizeListTitles = false
+
+[params]
+  description = "De coolste skivereniging van Nederland. Geen genade op de piste. Wel gezelligheid in de bar."
+  tagline = "Ski hard. Après harder."
+  email = "voorzitter@rigormortis.nl"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  style = "dracula"
+  lineNos = false
+  codeFences = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Berichten"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    name = "Over ons"
+    url = "/about/"
+    weight = 3

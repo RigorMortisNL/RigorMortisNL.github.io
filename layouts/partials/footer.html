@@ -1,0 +1,26 @@
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>RIGOR MORTIS</h3>
+      <p>De ultieme skivereniging.<br>Geen genade op de piste.<br>Wel gezelligheid in de bar.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer navigatie">
+      <h4>Navigatie</h4>
+      <ul role="list">
+        {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>📧 <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
+      <p>🏔 Skivereniging Rigor Mortis</p>
+      <p style="margin-top:1rem; color: var(--ice); font-size:1.4rem;">⛷ 🎿 🍷</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© {{ now.Year }} Skivereniging Rigor Mortis. Alle rechten voorbehouden.</p>
+    <p>Ski hard. Après harder. ❄</p>
+  </div>
+</footer>
