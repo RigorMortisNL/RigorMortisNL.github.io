@@ -33,3 +33,7 @@ pluralizeListTitles = false
     name = "Over ons"
     url = "/about/"
     weight = 3
+  [[menu.main]]
+    name = "Aanmelden 2027"
+    url = "/aanmelden/"
+    weight = 4
