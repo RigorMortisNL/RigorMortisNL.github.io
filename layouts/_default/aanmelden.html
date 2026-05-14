@@ -106,7 +106,9 @@
         <p class="aanmelden-form-intro"><em>Want herinneringen vervagen. Maar gênante filmpjes in de groepsapp zijn voor altijd.</em></p>
       </div>
 
-      <form class="aanmelden-form" action="mailto:{{ .Site.Params.email }}" method="POST" enctype="text/plain" novalidate>
+      <form class="aanmelden-form" action="https://formspree.io/f/xqenvlyo" method="POST">
+        <input type="hidden" name="_subject" value="Nieuwe aanmelding Rigor Mortis 2027">
+        <input type="text" name="_gotcha" style="display:none">
         <div class="form-row">
           <div class="form-group">
             <label for="voornaam">Voornaam <span class="form-required">*</span></label>
@@ -165,7 +167,7 @@
       </form>
 
       <p class="form-disclaimer">
-        Vragen? Mail naar <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+        Vragen? Neem contact op via het formulier hierboven.
       </p>
     </div>
   </div>
