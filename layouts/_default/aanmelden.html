@@ -106,8 +106,7 @@
         <p class="aanmelden-form-intro"><em>Want herinneringen vervagen. Maar gênante filmpjes in de groepsapp zijn voor altijd.</em></p>
       </div>
 
-      <!-- Vervang YOUR_FORM_ID met jouw Formspree formulier-ID via formspree.io -->
-      <form class="aanmelden-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+      <form class="aanmelden-form" action="mailto:{{ .Site.Params.email }}" method="POST" enctype="text/plain" novalidate>
         <div class="form-row">
           <div class="form-group">
             <label for="voornaam">Voornaam <span class="form-required">*</span></label>
